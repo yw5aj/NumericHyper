@@ -1,0 +1,20 @@
+Abaqus JOB SingleElemCompressNumeric
+Abaqus 6.13-1
+Abaqus License Manager checked out the following licenses:
+Abaqus/Standard checked out 5 tokens.
+<1014 out of 1024 licenses remain available>.
+Begin Linking Abaqus/Standard User Subroutines
+   Creating library standardU.lib and object standardU.exp
+End Linking Abaqus/Standard User Subroutines
+2015/5/17 14:26:49
+Begin Analysis Input File Processor
+2015/5/17 14:26:49
+Run pre.exe
+2015/5/17 14:27:01
+End Analysis Input File Processor
+Begin Abaqus/Standard Analysis
+2015/5/17 14:27:01
+Run standard.exe
+2015/5/17 14:27:15
+End Abaqus/Standard Analysis
+Abaqus JOB SingleElemCompressNumeric COMPLETED

@@ -1,0 +1,16 @@
+Abaqus JOB SingleElemEquiAnalytic
+Abaqus 6.13-1
+Abaqus License Manager checked out the following licenses:
+Abaqus/Standard checked out 5 tokens.
+<1019 out of 1024 licenses remain available>.
+Begin Analysis Input File Processor
+2015/5/16 23:35:31
+Run pre.exe
+2015/5/16 23:35:42
+End Analysis Input File Processor
+Begin Abaqus/Standard Analysis
+2015/5/16 23:35:42
+Run standard.exe
+2015/5/16 23:35:56
+End Abaqus/Standard Analysis
+Abaqus JOB SingleElemEquiAnalytic COMPLETED

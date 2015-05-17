@@ -1,0 +1,16 @@
+Abaqus JOB SingleElemCompressAnalytic
+Abaqus 6.13-1
+Abaqus License Manager checked out the following licenses:
+Abaqus/Standard checked out 5 tokens.
+<1019 out of 1024 licenses remain available>.
+Begin Analysis Input File Processor
+2015/5/17 14:26:47
+Run pre.exe
+2015/5/17 14:26:59
+End Analysis Input File Processor
+Begin Abaqus/Standard Analysis
+2015/5/17 14:26:59
+Run standard.exe
+2015/5/17 14:27:12
+End Abaqus/Standard Analysis
+Abaqus JOB SingleElemCompressAnalytic COMPLETED
