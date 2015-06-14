@@ -34,7 +34,7 @@ for i, key in enumerate(stress_ana_raw):
     stress_ana[:, i] = np.interp(press_dist, press_ana_raw.astype(float),
                                  stress_ana_raw[key].astype(float))
 # %% Start plotting
-fig, axs = plt.subplots(3, 1, figsize=(3.27, 8.75))
+fig, axs = plt.subplots(3, 1, figsize=(3.25, 8.75))
 # Screenshot
 im = plt.imread('./plots/screenshot_artery.png')
 axs[0].imshow(im)
@@ -65,7 +65,7 @@ axs[2].set_ylabel('Max. principal stress (kPa)')
 # Organize and save
 fig.tight_layout()
 for axes_id, axes in enumerate(axs.ravel()):
-    axes.text(-.15, 1.05, chr(65 + axes_id), transform=axes.transAxes,
+    axes.text(-.16, 1.05, chr(65 + axes_id), transform=axes.transAxes,
               fontsize=12, fontweight='bold', va='top')
 fig.savefig('./plots/arteryinfl.png')
 plt.close(fig)

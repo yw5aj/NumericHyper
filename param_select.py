@@ -259,7 +259,7 @@ if __name__ == '__main__':
     for i, dfgrd in enumerate(dfgrd_list_shear):
         dfgrd[0, 1] = f12[i]
     # Start plotting
-    fig, axs = plt.subplots(3, 3, figsize=(6.83, 6.83))
+    fig, axs = plt.subplots(3, 3, figsize=(6.5, 6.5))
     plot_error(dfgrd_list_uniaxial, (0, 0), params, axs[:, 0])
     plot_error(dfgrd_list_biaxial, (0, 0), params, axs[:, 1])
     plot_error(dfgrd_list_shear, (0, 1), params, axs[:, 2],

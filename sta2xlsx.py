@@ -19,7 +19,7 @@ def read_sta(jname):
 
 if __name__ == '__main__':
     jprefix_list = ['ArteryInflSymm', 'SingleElemCompress', 'SingleElemEqui',
-                    'SingleElemShear']
+                    'SingleElemShear', 'SingleElemTensile']
     jsuffix_list = ['Analytic', 'Numeric']
     for jprefix in jprefix_list:
         for jsuffix in jsuffix_list:
