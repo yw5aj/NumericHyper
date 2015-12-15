@@ -51,6 +51,7 @@ if __name__ == '__main__':
     fig.savefig('./plots/artery_method.png')
     fig.savefig('./plots/artery_method.pdf')
     fig.savefig('./plots/artery_method.eps')
+    plt.close(fig)
     # %% Plot the result figure
     fig, axs = plt.subplots(2, 1, figsize=(3.25, 6))
     # Pressure-radius
@@ -78,45 +79,6 @@ if __name__ == '__main__':
     fig.savefig('./plots/artery_result.png')
     fig.savefig('./plots/artery_result.pdf')
     fig.savefig('./plots/artery_result.eps')
-    plt.close(fig)
-    # %% Plot the original 3-row plot
-    fig, axs = plt.subplots(3, 1, figsize=(3.25, 8.75))
-    # Screenshot
-    im = plt.imread('./plots/screenshot_artery.png')
-    axs[0].imshow(im)
-    axs[0].axis('off')
-    axs[0].axvline(x=3, ls='--', lw=1.5, c='k', dashes=(8, 3, 2, 3))
-    axs[0].axhline(y=im.shape[0] - 3, ls='--', lw=1.5, c='k',
-                   dashes=(8, 3, 2, 3))
-    axs[0].text(-0.01, 0.5, 'Symmetric axis', va='center', ha='right',
-                rotation='vertical', transform=axs[0].transAxes, size=8)
-    axs[0].text(0.5, -0.01, 'Symmetric axis', va='top', ha='center',
-                rotation='horizontal', transform=axs[0].transAxes, size=8)
-    # Pressure-radius
-    axs[1].plot(press_exp, radius_exp, '^', mfc='none', label='Experiment')
-    axs[1].plot(press_num, radius_num, '-ok', mfc='none', label='Numerical FE')
-    axs[1].plot(press_ana, radius_ana, '--xk', ms=5, label='Analytical FE')
-    axs[1].legend(loc=4)
-    axs[1].set_xlabel('Pressure (kPa)')
-    axs[1].set_ylabel('Radius (mm)')
-    # Distributed stress
-    for i in range(stress_num.shape[0]):
-        axs[2].plot(radius_dist, stress_num[i], '-o', mfc='none',
-                    color=str(i * .15), label='Numerical FE')
-        axs[2].plot(radius_dist, stress_ana[i], '--x',
-                    ms=5, color=str(i * .15), label='Analytical FE')
-    handles, labels = axs[2].get_legend_handles_labels()
-    axs[2].legend(handles[:2], labels[:2])
-    axs[2].set_xlabel('Normalized distance')
-    axs[2].set_ylabel('Max. principal stress (kPa)')
-    # Organize and save
-    fig.tight_layout()
-    for axes_id, axes in enumerate(axs.ravel()):
-        axes.text(-.175, 1.05, chr(65 + axes_id), transform=axes.transAxes,
-                  fontsize=12, fontweight='bold', va='top')
-    fig.savefig('./plots/arteryinfl.png')
-    fig.savefig('./plots/arteryinfl.pdf')
-    fig.savefig('./plots/arteryinfl.eps')
     plt.close(fig)
     # %% Calculate err for radius-pressure curve
     press_interp = np.arange(5, 30, 5)
