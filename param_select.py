@@ -173,6 +173,14 @@ def plot_error(dfgrd_list, maxindex, params, axs=None, add_color_map=False):
     axs[1].set_xlabel(r'$\varepsilon_S$')
     axs[1].set_ylabel(r'$SS_{res}/SS_{tot}$ for $\sigma_{%d%d}$' %
                       (maxindex[0] + 1, maxindex[1] + 1))
+    axs[1].set_xlim(0, 16)
+    # Add the criteria line
+    err_threshold = 1e-4
+    xfine = np.arange(0, NPOW, 1e-3)
+    err_fine = np.exp(np.interp(xfine, range(NPOW), np.log(err_s)))
+    xrange = xfine[err_fine <= err_threshold]
+    axs[1].axvspan(xrange[0], xrange[-1], fc='k', ec='none', alpha=.3)
+    axs[1].axhline(y=err_threshold, ls='--', lw=.5, c='k')
     # Plot the ccj contour plot
     from matplotlib.colors import LogNorm
     im = axs[2].imshow(err_c, norm=LogNorm(vmin=1e-9, vmax=1),
@@ -234,7 +242,7 @@ def plot_stress(dfgrd_list, maxindex, params, eps_s, axs, do_plot=True,
 # %% Main code
 if __name__ == '__main__':
     # %% Get related quantities
-    params = dict(G=80e3, D=2e-1, model='Neo-Hookean')
+    params = dict(G=80e3, D=2e-6, model='Neo-Hookean')
     # %% Generate the dfgrd_list for uniaxial compression-tension
     f11 = np.linspace(.25, 4., NPTS)
     f22 = np.sqrt(1. / f11)
@@ -289,7 +297,10 @@ if __name__ == '__main__':
     # Tighten figure and save
     fig.tight_layout()
     for axes_id, axes in enumerate(axs.ravel()):
-        axes.text(-.3, 1.05, chr(65 + axes_id), transform=axes.transAxes,
+        axes.text(-.35, 1.05, chr(65 + axes_id), transform=axes.transAxes,
                   fontsize=12, fontweight='bold', va='top')
     fig.subplots_adjust(right=.95)
     fig.savefig('./plots/singleelem.png')
+    fig.savefig('./plots/singleelem.pdf')
+    fig.savefig('./plots/singleelem.eps')
+    plt.close(fig)
