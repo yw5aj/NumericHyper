@@ -23,10 +23,10 @@ if __name__ == '__main__':
     # Stress distribution
     radius_dist = np.linspace(1., 0., 7)
     press_dist = np.linspace(0, 25000, 5) * 1e-3
-    press_num_raw = df.iloc[24:31, 6] * 1e-3
-    stress_num_raw = df.iloc[24:31, 8:15] * 1e-3
-    press_ana_raw = df.iloc[35:41, 6] * 1e-3
-    stress_ana_raw = df.iloc[35:41, 8:15] * 1e-3
+    press_num_raw = df.iloc[23:31, 6] * 1e-3
+    stress_num_raw = df.iloc[23:31, 8:15] * 1e-3
+    press_ana_raw = df.iloc[34:41, 6] * 1e-3
+    stress_ana_raw = df.iloc[34:41, 8:15] * 1e-3
     stress_num = np.empty((press_dist.size, radius_dist.size))
     stress_ana = np.empty((press_dist.size, radius_dist.size))
     for i, key in enumerate(stress_num_raw):
@@ -69,8 +69,19 @@ if __name__ == '__main__':
                     ms=5, color=str(i * .15), label='Analytical FE')
     handles, labels = axs[1].get_legend_handles_labels()
     axs[1].legend(handles[:2], labels[:2])
+    axs[1].annotate('Pressure = %.2f kPa' % press_dist[0],
+                    xy=(.4, stress_num[0, 4] - 20),
+                    xytext=(.45, stress_num[0, 4] - 70),
+                    arrowprops=dict(facecolor='black', headlength=3,
+                                    width=.5, headwidth=3, shrink=.1))
+    axs[1].annotate('Pressure = %.2f kPa' % press_dist[-1],
+                    xy=(.4, stress_num[-1, 4]),
+                    xytext=(.45, stress_num[-1, 4] + 50),
+                    arrowprops=dict(facecolor='black', headlength=3,
+                                    width=.5, headwidth=3, shrink=.1))
     axs[1].set_xlabel('Normalized distance')
     axs[1].set_ylabel('Max. principal stress (kPa)')
+    axs[1].set_ylim(bottom=-100)
     # Organize and save
     fig.tight_layout()
     for axes_id, axes in enumerate(axs.ravel()):
