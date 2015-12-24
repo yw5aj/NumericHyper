@@ -171,7 +171,7 @@ def plot_error(dfgrd_list, maxindex, params, axs=None, add_color_map=False):
     axs[1].set_xticks(xticks)
     axs[1].set_xticklabels([r'$10^{-%d}$' % tick for tick in xticks])
     axs[1].set_xlabel(r'$\varepsilon_S$')
-    axs[1].set_ylabel(r'$SS_{res}/SS_{tot}$ for $\sigma_{%d%d}$' %
+    axs[1].set_ylabel(r'FVU for $\sigma_{%d%d}$' %
                       (maxindex[0] + 1, maxindex[1] + 1))
     axs[1].set_xlim(0, 16)
     # Add the criteria line
@@ -291,9 +291,9 @@ if __name__ == '__main__':
     axs[0, 0].set_title('Uniaxial compression/tension')
     axs[0, 1].set_title('Biaxial tension')
     axs[0, 2].set_title('Simple shear')
-    axs[2, 0].set_title(r'$SS_{res}/SS_{tot}$ for $\mathbb{C}^{\sigma J}$')
-    axs[2, 1].set_title(r'$SS_{res}/SS_{tot}$ for $\mathbb{C}^{\sigma J}$')
-    axs[2, 2].set_title(r'$SS_{res}/SS_{tot}$ for $\mathbb{C}^{\sigma J}$')
+    axs[2, 0].set_title(r'FVU for $\mathbb{C}^{\sigma J}$')
+    axs[2, 1].set_title(r'FVU for $\mathbb{C}^{\sigma J}$')
+    axs[2, 2].set_title(r'FVU for $\mathbb{C}^{\sigma J}$')
     # Tighten figure and save
     fig.tight_layout()
     for axes_id, axes in enumerate(axs.ravel()):
