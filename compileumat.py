@@ -1,4 +1,4 @@
-os.chdir('x:/workfolder/abaqusfolder/numerichyper')
+os.chdir('x:/YuxiangWang/abaqusfolder/numerichyper')
 from abqimport import *
 import subprocess, copy
 # Taken from abaqus_v6.env
